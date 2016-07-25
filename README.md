@@ -1,6 +1,11 @@
 # NNTP #
 Golang NNTP Library with multi connection support
 
+## Install ##
+```bash
+go get github.com/GJRTimmer/nntp
+```
+
 ## Package Info ##
 Conn Interface is primarly used for a single connection to a NNTP server.
 ```go
