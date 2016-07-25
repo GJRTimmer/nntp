@@ -36,7 +36,7 @@ func (cp *ConnectionPool) Start() {
 
     // Start Connections
     for i:= 0; i < cp.maxConnections; i++ {
-        cp.pool[i] = NewPoolConn(i, cp.Info, cp.poolChannel)
+        cp.pool[i] = cp.newPoolConn(i, cp.Info, cp.poolChannel)
         cp.pool[i].Start()
     }
 
