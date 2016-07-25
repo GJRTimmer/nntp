@@ -150,6 +150,3 @@ func main() {
 }
 
 ```
-
-### Usage Multi Connection
-
