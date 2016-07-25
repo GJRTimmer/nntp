@@ -11,7 +11,7 @@ var _ Conn = (*conn)(nil)
 
 // Conn represent(s) a single connection to a NNTP Server
 type Conn interface {
-    Connect() bool
+    Connect() (bool, error)
     Close() error
 
     SwitchGroup(group string) error
@@ -41,7 +41,7 @@ func (c *conn) String() string {
 }
 
 // Connect to NNTP server
-func (c *conn) Connect() bool {
+func (c *conn) Connect() (bool, error) {
     // (Re)connect
     // Try to connect to newsgroup server
     // if unable to connect start auto-reconnect timer
@@ -49,18 +49,18 @@ func (c *conn) Connect() bool {
         // Secured connection is requested
         err := c.dialTLS()
         if err != nil {
-            return false
+            return false, err
         }
 
-        return true
+        return true, nil
     }
 
     err := c.dial()
     if err != nil {
-        return false
+        return false, err
     }
 
-    return true
+    return true, nil
 }
 
 func (c *conn) dial() error {
