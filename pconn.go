@@ -27,7 +27,7 @@ type poolConn struct {
 }
 
 // NewPoolConn create a new NNTP connection for use in a connection pool
-func NewPoolConn(id int, i *ServerInfo, pool chan chan *Request) PoolConn {
+func (cp *ConnectionPool) newPoolConn(id int, i *ServerInfo, pool chan chan *Request) PoolConn {
     return &poolConn {
         conn: &conn {
             id: id,
