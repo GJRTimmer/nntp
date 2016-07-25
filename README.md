@@ -68,5 +68,5 @@ type ServerAuth struct {
 
 ### [Usage Single Connection](README-SINGLE.md) ###
 
-### Usage Multi Connection
+### [Usage Multi Connection](README-MULTI.md) ###
 
